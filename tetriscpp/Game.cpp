@@ -71,7 +71,7 @@ void Game::InitGame()
  */
 void Game::DrawPiece(int x, int y, int piece, int rotation)
 {
-    color mColor; // COlor of the block
+    color mColor; // Color of the block
 
     // Obtain the positino in pixel on the screen of the block we want to draw
     int mPixelsX = mBoard->GetXPosInPixels(x);
@@ -103,4 +103,13 @@ void Game::DrawPiece(int x, int y, int piece, int rotation)
 
 void Game::DrawBoard()
 {
+    //Calculate the limits of the board in pixels
+    int x1 = BOARD_POSITION - (BLOCK_SIZE *(BOARD_WIDTH/2)) - 1;
+    int x2 = BOARD_POSITION + (BLOCK_SIZE *(BOARD_WIDTH/2));
+    int y = mScreenHeight - (BLOCK_SIZE *(BOARD_HEIGHT));
+
+    //Rectangles that delimits the board
+    mIO->DrawRectangle(x1- BOARD_LINE_WIDTH, y, x2, mScreenHeight - 1, BLUE);
+    mIO->DrawRectangle(x2,y,x2)
+    
 }
